@@ -19,18 +19,25 @@ module.exports = {
   module: {
     rules: [
       {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      loader: 'url-loader',
+      include: [ path.join(__dirname, "..", "client")],
+      options: {
+        limit: 25000
+    },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
         include: [ path.join(__dirname, "..", "client")],
         options: { cacheDirectory: true }
       },
-      { 
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
-        loader:"url-loader", 
-        query: { 
-          limit: 10000, 
-          mimetype: "application/font-woff" 
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader:"url-loader",
+        query: {
+          limit: 10000,
+          mimetype: "application/font-woff"
         }
       },
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
