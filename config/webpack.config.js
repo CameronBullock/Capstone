@@ -23,7 +23,8 @@ module.exports = {
       loader: 'url-loader',
       include: [ path.join(__dirname, "..", "client")],
       options: {
-        limit: 25000
+        limit: 25000}
+        
     },
       {
         test: /\.jsx?$/,
@@ -44,6 +45,7 @@ module.exports = {
       { test: /\.css$/, loader: "css-loader" }
     ]
   },
+
   plugins: [
     new ExtractTextPlugin('styles.css'),
   ],
