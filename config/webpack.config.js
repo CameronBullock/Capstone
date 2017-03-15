@@ -24,7 +24,6 @@ module.exports = {
       include: [ path.join(__dirname, "..", "client")],
       options: {
         limit: 25000}
-        
     },
       {
         test: /\.jsx?$/,
