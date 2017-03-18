@@ -8,13 +8,13 @@ class Article extends React.Component{
   }
 
   newArticle = () => {
-    console.log(this.props.allArticles.url)
+    let randomArticleNumber = Math.floor(Math.random() * this.props.allArticles.websites.length);
   }
   render(){
     return(
       <div>
           <button onClick={this.newArticle}>on click</button>
-        <iframe src={this.props.allArticles.url} width="1000px" height="400px"></iframe>
+          <iframe src={this.props.allArticles.websites[0].url} width="1000px" height="400px"></iframe>
       </div>
     )
   }
