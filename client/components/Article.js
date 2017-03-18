@@ -12,9 +12,9 @@ class Article extends React.Component{
   }
   render(){
     return(
-      <div>
-          <button onClick={this.newArticle}>on click</button>
-          <iframe src={this.props.allArticles.websites[0].url} width="1000px" height="400px"></iframe>
+      <div className="container">
+          <button className="right btn" onClick={this.newArticle}>Next Article</button>
+          <iframe src={this.props.allArticles.websites[{randomArticleNumber}].url} width="100%" height="800px"></iframe>
       </div>
     )
   }
