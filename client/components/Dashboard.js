@@ -26,7 +26,7 @@ class Dashboard extends React.Component {
   render(){
     return(
       <div>
-        <Article allArticles={this.state.articles} newUrl={this.state.articles.url} />
+        <Article allArticles={this.state.articles} />
       </div>
     )
   }
