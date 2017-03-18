@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { logout, refreshLogin } from '../actions/auth';
 import { connect } from 'react-redux';
 import Flash from '../components/Flash';
+import Dashboard from "../components/Dashboard";
 
 class App extends React.Component {
   componentDidMount() {
@@ -35,8 +36,8 @@ class App extends React.Component {
         });
         links.push(
           <li key="logout">
-            <a 
-              href="#" 
+            <a
+              href="#"
               onClick={ e => {
                 this.props.dispatch(logout(this.props.router))
               }}
@@ -76,6 +77,7 @@ class App extends React.Component {
         </nav>
         <Flash />
         {this.props.children}
+        <Dashboard />
       </div>
     );
   }
