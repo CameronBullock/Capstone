@@ -8,20 +8,26 @@ class Dashboard extends React.Component {
     "articles" : {
       "websites" : [
           {
-              "url": "https://www.nytimes.com/2017/03/17/world/europe/angela-merkel-donald-trump.html?_r=0",
+              "url": "",
               "categories": ["politics", "business", "education"],
               "affiliation": 1
           },
           {
-              "url":"https://www.washingtonpost.com/politics/trump-drags-key-foreign-allies-into-controversy-over-unproven-wiretap-claims/2017/03/17/bd405278-0b2a-11e7-93dc-00f9bdd74ed1_story.html",
-              "categories": ["politics", "trump"],
-              "affiliation": 3
+              "url":"https://www.city-journal.org/html/don%E2%80%99t-legalize-drugs-11758.html",
+              "categories": ["politics", "marijuana"],
+              "affiliation": 4
           },
           {
-              "url":"https://www.youtube.com/embed/evaMpdSiZKk",
+              "url":"https://www.youtube.com/embed/Ifi9M7DRazI",
               "categories": ["video"],
-              "affiliation": 3
+              "affiliation": 1
           },
+          {
+              "url":"http://j-walk.com/images/PoliticalSpectrumInfographic_5DD0/leftright.gif",
+              "categories": ["image", "explain", "neutral"],
+              "affiliation": 2
+          },
+
        ]
   }
 }
