@@ -13,7 +13,7 @@ class Article extends React.Component{
   render(){
     return(
       <div>
-          <button onClick={this.newArticle.bind(this)}>on click</button>
+          <button onClick={ () => this.newArticle.bind(this)}>on click</button>
         <iframe src={this.props.newUrl} width="1000px" height="400px"></iframe>
       </div>
     )
