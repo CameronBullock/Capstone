@@ -20,6 +20,7 @@ export default (
    <Route path="/" component={App}>
      <Route path="signup" component={Auth} title="Sign Up" />
      <Route path="signin" component={Auth} title="Sign In" />
+
      <Route component={AuthenticatedRoutes}>
          {/* PROTECTED BY AUTHENTICATION */}
        <Route component={AdminRoutes}>

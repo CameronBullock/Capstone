@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
-import Article from "../components/Article"
+import Article from "../components/Article";
+import AddSource from "../components/AddSource"
 
 
 class Dashboard extends React.Component {
@@ -51,6 +52,7 @@ class Dashboard extends React.Component {
     return(
       <div>
         <Article allArticles={this.state.articles}/>
+        <AddSource />
       </div>
     )
   }
