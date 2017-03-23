@@ -10,10 +10,11 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 
 const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/changemyviewdb'
-mongoose.connect(mongoUri)
+mongoose.connect(mongoUri);
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+const articles = require('./routes/articles');
 const app = express();
 
 // view engine setup
@@ -42,6 +43,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use('/api/auth', auth);
+app.use('/api/articles', articles);
 
 app.use('*', index);
 
