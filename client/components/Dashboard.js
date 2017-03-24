@@ -5,7 +5,7 @@ import AddSource from "../components/AddSource"
 
 
 class Dashboard extends React.Component {
-  state = { articles: []}
+  state = { articles: [] , id: '', url: ''}
   componentDidMount(){
     $.ajax({
       url: "/api/articles",
@@ -15,17 +15,24 @@ class Dashboard extends React.Component {
     });
   }
 
+  indexUrl = () =>{
+    let num = Math.floor(Math.random() * this.state.articles.length);
+    this.displayArticle(num)
+  }
+
+  displayArticle = (num) => {
+    let article = this.state.articles[num]
+    this.setState({ url: article.url})
+  }
+
   render(){
-    let articles = this.state.articles.map( article => {
-      return(
-        <div key={article._id}>
-          {article.categories}
-        </div>
-      )
-    })
+
     return(
+
       <div>
-        {articles}
+        <Article articleURL={this.state.url} />
+        <button className=" btn" onClick={this.indexUrl}>Next Article</button>
+        <AddSource />
       </div>
     )
   }

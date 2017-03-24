@@ -16,7 +16,7 @@ router.get('/', (req,res) => {
     if (err) {
       console.log(err)
     } else {
-      console.log(articles)
+      console.log(articles);
       res.json(articles);
     }
 
