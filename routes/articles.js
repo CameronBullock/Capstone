@@ -12,9 +12,15 @@ const Article = require('../models/article');
 // };
 
 router.get('/', (req,res) => {
-  Articles.find();
-  return res.json(req.article);
+  Article.find((err, articles) =>{
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(articles)
+      res.json(articles);
+    }
 
+  });
 });
 
 router.post("/", (req, res) => {

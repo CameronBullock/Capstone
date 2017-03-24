@@ -5,39 +5,27 @@ import AddSource from "../components/AddSource"
 
 
 class Dashboard extends React.Component {
-  state = {
-    "articles" : {
-      "websites" : [
-          {
-              "url":"https://www.youtube.com/embed/Ifi9M7DRazI",
-              "categories": ["video"],
-              "affiliation": 1
-          },
-
-       ]
+  state = { articles: []}
+  componentDidMount(){
+    $.ajax({
+      url: "/api/articles",
+      type: "GET"
+    }).done( articles => {
+      this.setState({ articles });
+    });
   }
-}
-  // constructor(props){
-  //   super(props);
-  //   // this.state = {articles:({url: "https://facebook.com"})}
-  //   this.state = articles[{
-  //     url: "http://www.cnn.com/2017/03/17/politics/kfile-seb-gorka-travel-ban-comments/index.html"
-  //   }]
-  // }
-  // componentDidMount(){
-  //   $.ajax({
-  //     url: "/articles",
-  //     type: "GET"
-  //   }).done( articles => {
-  //     this.setState({articles});
-  //   });
-  // }
 
   render(){
+    let articles = this.state.articles.map( article => {
+      return(
+        <div key={article._id}>
+          {article.categories}
+        </div>
+      )
+    })
     return(
       <div>
-        <Article allArticles={this.state.articles}/>
-        <AddSource />
+        {articles}
       </div>
     )
   }
