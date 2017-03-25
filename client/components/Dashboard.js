@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDom from "react-dom";
 import Article from "../components/Article";
-import AddSource from "../components/AddSource"
-
+import AddSource from "../components/AddSource";
+import {connect} from "react-redux";
 
 class Dashboard extends React.Component {
-  state = { articles: [] , id: '', url: ''}
+  state = { articles: [] , id: '', affiliateUrl: '', affiliationData: []}
   componentDidMount(){
     $.ajax({
       url: "/api/articles",
@@ -13,29 +13,54 @@ class Dashboard extends React.Component {
     }).done( articles => {
       this.setState({ articles });
     });
-  }
+  };
 
-  indexUrl = () =>{
-    let num = Math.floor(Math.random() * this.state.articles.length);
-    this.displayArticle(num)
-  }
+ filterArticles = () => {
+   const affiliation = this.props.user.affiliation
 
-  displayArticle = (num) => {
-    let article = this.state.articles[num]
-    this.setState({ url: article.url})
+   switch(affiliation) {
+     case "1":
+       this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 2 ) })
+       break;
+     case "2":
+       this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 3 ) })
+       break;
+     case "5":
+      this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 3 ) })
+      break;
+   }
+ }
+
+  displayArticle = () => {
+    let data = this.state.affiliationData;
+    let num = Math.floor(Math.random() * data.length);
+    let article = data[num]
+    return article.url;
   }
 
   render(){
-
-    return(
-
-      <div>
-        <Article articleURL={this.state.url} />
-        <button className=" btn" onClick={this.indexUrl}>Next Article</button>
-        <AddSource />
-      </div>
-    )
+    if (this.state.affiliationData.length) {
+      return(
+        <div>
+          <Article articleURL={this.displayArticle()} />
+          <button className=" btn" onClick={this.filterArticles}>Next Article</button>
+          <AddSource />
+        </div>
+      )
+    }else {
+      return(
+        <div>
+          <button className=" btn" onClick={this.filterArticles}>Next Article</button>
+          <AddSource />
+        </div>
+      )
+    }
+  }
+}
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
   }
 }
 
-export default Dashboard;
+export default connect(mapStateToProps) (Dashboard);
