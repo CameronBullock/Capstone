@@ -51,6 +51,7 @@ class App extends React.Component {
       return [
         { name: 'Sign In', path: '/signin' },
         { name: 'Sign Up', path: '/signup' },
+        { name: 'Explore', path: '/' },
       ].map( (link, i) => {
         let active = this.props.location.pathname === link.path ? 'active' : '';
         return this.link(i, link.name, link.path)
@@ -77,7 +78,6 @@ class App extends React.Component {
         </nav>
         <Flash />
         {this.props.children}
-        <Dashboard />
       </div>
     );
   }
