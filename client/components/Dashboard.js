@@ -19,13 +19,16 @@ class Dashboard extends React.Component {
    const affiliation = this.props.user.affiliation
 
    switch(affiliation) {
-     case "1":
+     case 1:
        this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 2 ) })
        break;
-     case "2":
-       this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 3 ) })
+     case 2:
+       this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 3 && 5 ) })
        break;
-     case "5":
+     case 3:
+      this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 2 && 5 ) })
+      break;
+    case 4:
       this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 3 ) })
       break;
    }
