@@ -37,16 +37,3 @@ router.post("/", (req, res) => {
 });
 
 module.exports = router;
-// router.post('/signup', (req, res) => {
-//   let { email, password } = req.body;
-//   User.register(new User({username: email}), password, (err, user) => {
-//     if (err)
-//       return res.status(500).json(err);
-//
-//     user.save( (err, user) => {
-//       if (err)
-//         return res.status(500).json(err);
-//       return res.json(user)
-//     });
-//   });
-// });

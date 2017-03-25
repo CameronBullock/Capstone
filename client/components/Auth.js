@@ -6,17 +6,17 @@ import { setFlash } from '../actions/flash';
 class Auth extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
-    let { email, password, props: { location, dispatch, router }} = this;
+    let { email, password, affiliation, props: { location, dispatch, router }} = this;
 
     $.ajax({
-      url: `/api/auth/${location.pathname}`,
+      url: `/api/auth${location.pathname}`,
       type: 'POST',
-      data: { email: email.value, password: password.value }
+      data: { email: email.value, password: password.value, affiliation: affiliation.value }
     }).done( user => {
       dispatch(refreshLogin(user));
       router.push("/")
     }).fail( err => {
-      dispatch(setFlash(err.responseJSON.message, 'error'))
+      dispatch(setFlash(err, 'error'))
     });
   }
 
@@ -27,6 +27,8 @@ class Auth extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <input type="email" required={true} ref={ n => this.email = n } placeholder="email" />
             <input type="password" required={true} ref={n => this.password = n } placeholder="password" />
+            <input type="text" required={true} ref={n => this.affiliation = n } placeholder="affiliation" />
+
            <button className="btn">{this.props.route.title}</button>
          </form>
       </div>
