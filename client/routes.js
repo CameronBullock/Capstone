@@ -7,6 +7,7 @@ import Auth from './components/Auth';
 import NotFound from './components/NotFound';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
+import Account from './components/Account';
 
 const AdminAccess = UserAuthWrapper({
   authSelector: state => state.user,
@@ -26,7 +27,7 @@ export default (
 
      <Route component={AuthenticatedRoutes}>
          {/* PROTECTED BY AUTHENTICATION */}
-         <Route path="dashboard" component={Dashboard} title="Explore" />
+         <Route path="dashboard" component={Dashboard} title="WiseBias" />
 
 
        <Route component={AdminRoutes}>

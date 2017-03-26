@@ -13,14 +13,14 @@ class App extends React.Component {
 
   links = () => {
     return [
-      { name: 'Home', path: '/' },
+
     ].map( (link, i) => {
       return this.link(i, link.name, link.path)
     })
   }
 
   link = (i, name, path) => {
-    let activeClass = this.props.location.pathname === path ? 'active' : '';
+    let activeClass = this.props.location.pathname === path ? '' : '';
     return (
       <li key={i} className={activeClass}>
         <Link to={path}>{name}</Link>
@@ -51,7 +51,7 @@ class App extends React.Component {
       return [
         { name: 'Sign In', path: '/signin' },
         { name: 'Sign Up', path: '/signup' },
-        { name: 'Explore', path: '/' },
+        { name: 'Profile', path: '/Account' },
       ].map( (link, i) => {
         let active = this.props.location.pathname === link.path ? 'active' : '';
         return this.link(i, link.name, link.path)
@@ -62,10 +62,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <nav>
-          <div className="nav-wrapper">
-            <a href="#!" className="brand-logo">Logo</a>
-            <a href="#" data-activates="mobile" className="button-collapse"><i className="material-icons">menu</i></a>
+        <nav className="white z-depth-0 container">
+          <div>
+            <a href="/" className="brand-logo">WiseBias</a>
+            <a href="#" data-activates="mobile" className="red-text button-collapse"><i className="material-icons">menu</i></a>
             <ul className="right hide-on-med-and-down">
               { this.links() }
               { this.authLinks() }

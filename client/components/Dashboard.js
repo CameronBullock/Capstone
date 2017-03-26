@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
   render(){
     if (this.state.affiliationData.length) {
       return(
-        <div>
+        <div className="container">
           <Article articleURL={this.displayArticle()} />
           <button className=" btn" onClick={this.filterArticles}>Next Article</button>
           <AddSource />
@@ -52,8 +52,8 @@ class Dashboard extends React.Component {
       )
     }else {
       return(
-        <div>
-          <button className=" btn" onClick={this.filterArticles}>Next Article</button>
+        <div className="container">
+          <button className="center-align btn" onClick={this.filterArticles}>Get an Article</button>
           <AddSource />
         </div>
       )
@@ -66,4 +66,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps) (Dashboard);
+export default connect(mapStateToProps)(Dashboard);

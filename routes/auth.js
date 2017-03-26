@@ -10,6 +10,8 @@ const isAuthenticated = (req, res, next) => {
      return res.json({ })
 }
 
+//Update User Put Route
+
 router.post('/signup', (req, res) => {
   let { email, password, affiliation } = req.body;
   User.register(new User({username: email, affiliation }), password, (err, user) => {
