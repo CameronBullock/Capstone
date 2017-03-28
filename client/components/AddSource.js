@@ -23,12 +23,13 @@ class AddSource extends React.Component {
   render() {
 
     return (
-      <div className="container">
+      <div className="source-form">
+        <h3>Add An Article</h3>
         <form onSubmit={this.addSource}>
           <input ref={ n => this.url = n } placeholder="Url"/>
           <input type="text" ref={ n => this.categories = n } placeholder="categories"/>
           <input ref={ n => this.affiliation = n } placeholder="Affiliation"/>
-          <button className="btn">Add</button>
+          <button className="btn">Add Article</button>
         </form>
       </div>
     );

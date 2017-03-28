@@ -64,9 +64,13 @@ class Dashboard extends React.Component {
                 <label htmlFor="no">No</label>
               </p>
               <button className=" btn" onClick={this.filterArticles}>Next Article</button>
+              <br/>
+              <br/>
+              <AddSource />
             </div>
             <div className="col m1"></div>
           </div>
+
         </div>
       )
     }else {
