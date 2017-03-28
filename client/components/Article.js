@@ -10,8 +10,8 @@ class Article extends React.Component{
   render(){
     return(
         <div className="row">
-          <div className="col m8 offset-m2">
-            <iframe src={this.props.articleURL} width="100%" height="400px"></iframe>
+          <div>
+            <iframe src={this.props.articleURL} width="100%" height="800px"></iframe>
           </div>
         </div>
     )

@@ -43,3 +43,31 @@ nav ul a:hover, nav ul a:active {
     margin-top: 25px;
     color: #949494;
 }
+select {
+    display: block !important;
+}
+.interest-list li:last-child {
+    border-bottom: 1px solid #909090;
+}
+.interest-list li {
+    font-size: 1.5em;
+    border-top: 1px solid #909090;
+    color: #909090;
+    padding: .6em 0;
+}
+.interest-list #selected-topic {
+  color: #ff2d55 !important;
+}
+.section-title {
+    margin-top: 4em;
+}
+.auth-form button {
+    margin-top: 3em;
+}
+.section-title h6 {
+    margin: 1em 0 4em 0;
+    letter-spacing: 2px;
+}
+.section-title h3 {
+    margin-bottom: 0 !important;
+}

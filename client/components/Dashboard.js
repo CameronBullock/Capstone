@@ -44,17 +44,30 @@ class Dashboard extends React.Component {
   render(){
     if (this.state.affiliationData.length) {
       return(
-        <div className="container">
-          <Article articleURL={this.displayArticle()} />
-          <button className=" btn" onClick={this.filterArticles}>Next Article</button>
-          <AddSource />
+        <div>
+          <div className="row">
+            <div id="main-article" className="col m7 offset-m1">
+              <Article articleURL={this.displayArticle()} />
+            </div>
+            <div id="article-aside" className="col m3">
+              <button className=" btn" onClick={this.filterArticles}>Next Article</button>
+              <AddSource />
+            </div>
+            <div className="col m1"></div>
+          </div>
         </div>
       )
     }else {
       return(
         <div className="container">
-          <button className="center-align btn" onClick={this.filterArticles}>Get an Article</button>
-          <AddSource />
+          <div className="valign-wrapper">
+            <div className="valign">
+              <h1>Get Started Exploring</h1>
+              <p>Vestibulum euismod mus nibh potenti suscipit scelerisque ultricies parturient a.</p>
+              <br/>
+              <button className="center-align btn" onClick={this.filterArticles}>Get Started</button>
+            </div>
+          </div>
         </div>
       )
     }

@@ -4,11 +4,18 @@ import { refreshLogin } from '../actions/auth';
 import { setFlash } from '../actions/flash';
 
 class Auth extends React.Component {
+  state = { affiliation: null };
+
+  handleChange = (e) => {
+  this.setState({ affiliation: e.target.value });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    let { email, password, affiliation, props: { location, dispatch, router }} = this;
 
-    let extraData = location.pathname === "/signup" ? {affiliation: affiliation.value} : {}
+    let { email, password, affiliation, props: { location, dispatch, router }} = this;
+    let extraData = location.pathname === "/signup" ? {affiliation: this.state.affiliation} : {}
+    console.log(this.state.affiliation);
 
     $.ajax({
       url: `/api/auth${location.pathname}`,
@@ -18,6 +25,7 @@ class Auth extends React.Component {
       dispatch(refreshLogin(user));
       router.push("/dashboard")
     }).fail( err => {
+      debugger
       dispatch(setFlash(err, 'error'))
     });
   }
@@ -27,46 +35,34 @@ class Auth extends React.Component {
       <div className="container">
         <h2 className="center">{this.props.route.title}</h2>
         <div className="row">
-          <form className="col col-md-6 offset-m4" onSubmit={this.handleSubmit}>
+          <form className="auth-form col col-md-6 offset-m4" onSubmit={this.handleSubmit}>
             <input type="email" required={true} ref={ n => this.email = n } placeholder="email" />
             <input type="password" required={true} ref={n => this.password = n } placeholder="password" />
             {this.props.location.pathname === "/signin" ? null :
             <div>
-              <input type="text" required={true} ref={n => this.affiliation = n } placeholder="affiliation" />
-              <ul>
-                <h2 className="center">Your Interests</h2>
-                <li>Politics</li>
-                <br/>
+              <ul className="interest-list">
+                <div className="center section-title">
+                  <h3 className="center">Your Interests</h3>
+                  <h6>Which topics would you like to explore other views?</h6>
+                </div>
+                <li id="selected-topic">Politics</li>
                 <li>Religion</li>
-                <br/>
                 <li>Sports</li>
               </ul>
-              <br/>
-              <br/>
-              <div>
-                <h2 className="center">Where You Stand</h2>
-                <p>
-                  <input name="affiliation" value="1" type="radio" id="one" />
-                  <label for="one">Liberal</label>
-                </p>
-                <p>
-                  <input name="affiliation" type="radio" id="two" />
-                  <label for="two">Moderate - Liberal</label>
-                </p>
-                <p>
-                  <input name="affiliation" type="radio" id="three"  />
-                  <label for="three">Moderate - Conservative</label>
-                </p>
-                <p>
-                  <input name="affiliation" type="radio" id="four"  />
-                  <label for="four">Conservative</label>
-                </p>
+              <div className="affiliation-list">
+                <div className="center section-title">
+                  <h3 className="center">Where You Stand</h3>
+                  <h6>Vestibulum euismod mus nibh potenti suscipit</h6>
+                </div>
+                <select className="browser-default" onChange={this.handleChange}>
+                  <option value="1">Liberal</option>
+                  <option value="2">Moderate - Liberal</option>
+                  <option value="3">Moderate - Conservative</option>
+                  <option value="4">Conservative</option>
+                </select>
               </div>
             </div>
           }
-
-
-
           <button className="btn col m12">{this.props.route.title}</button>
         </form>
       </div>
