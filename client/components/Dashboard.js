@@ -15,24 +15,24 @@ class Dashboard extends React.Component {
     });
   };
 
- filterArticles = () => {
-   const affiliation = this.props.user.affiliation
+  filterArticles = () => {
+    const affiliation = this.props.user.affiliation
 
-   switch(affiliation) {
-     case 1:
-       this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 2 ) })
-       break;
-     case 2:
-       this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 3 && 5 ) })
-       break;
-     case 3:
+    switch(affiliation) {
+      case 1:
+      this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 2 ) })
+      break;
+      case 2:
+      this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 3 && 5 ) })
+      break;
+      case 3:
       this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 2 && 5 ) })
       break;
-    case 4:
+      case 4:
       this.setState({affiliationData: this.state.articles.filter( a => a.affiliation === 3 ) })
       break;
-   }
- }
+    }
+  }
 
   displayArticle = () => {
     let data = this.state.affiliationData;
@@ -50,8 +50,20 @@ class Dashboard extends React.Component {
               <Article articleURL={this.displayArticle()} />
             </div>
             <div id="article-aside" className="col m3">
+              <h5>Did this video adjust your point of view on politics?</h5>
+              <p>
+                <input name="group1" type="radio" id="yes" />
+                <label htmlFor="yes">Yes</label>
+              </p>
+              <p>
+                <input name="group1" type="radio" id="marginally" />
+                <label htmlFor="marginally">Marginally</label>
+              </p>
+              <p>
+                <input name="group1" type="radio" id="no"  />
+                <label htmlFor="no">No</label>
+              </p>
               <button className=" btn" onClick={this.filterArticles}>Next Article</button>
-              <AddSource />
             </div>
             <div className="col m1"></div>
           </div>
