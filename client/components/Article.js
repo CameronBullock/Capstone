@@ -18,8 +18,8 @@ class Article extends React.Component{
             <h6>{this.props.articleData.categories}</h6>
             <div className="icons">
               <i className="fa fa-heart"></i>
-              <i className="material-icons">bookmark</i>
-              <i className="material-icons">share</i>
+              <i className="fa fa-bookmark"></i>
+              <i className="fa fa-share-alt"></i>
             </div>
           </div>
         </div>
