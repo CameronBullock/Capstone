@@ -5,6 +5,7 @@ class AddSource extends React.Component {
 
   addSource = (e) => {
     e.preventDefault();
+    let title = this.title.value;
     let url = this.url.value;
     let categories = this.categories.value;
     let affiliation = this.affiliation.value;
@@ -12,7 +13,7 @@ class AddSource extends React.Component {
     $.ajax({
       url: 'api/articles',
       type: 'POST',
-      data: { url, categories, affiliation }
+      data: { title, url, categories, affiliation }
     }).done( article => {
       console.log("Done");
     }).fail( data => {
@@ -26,6 +27,7 @@ class AddSource extends React.Component {
       <div className="source-form">
         <h3>Add An Article</h3>
         <form onSubmit={this.addSource}>
+          <input ref={ n => this.title = n } placeholder="Article Title"/>
           <input ref={ n => this.url = n } placeholder="Url"/>
           <input type="text" ref={ n => this.categories = n } placeholder="categories"/>
           <input ref={ n => this.affiliation = n } placeholder="Affiliation"/>

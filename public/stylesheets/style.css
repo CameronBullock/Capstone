@@ -92,15 +92,15 @@ select {
 }
 .article-info h2 {
     margin: 0;
-    font-size: 2.5em;
-    font-weight: 400;
-    letter-spacing: 1px;
+    padding-bottom: .3em;
+    font-size: 1.5em;
+    font-weight: 500;
     color: #464646;
 }
 .article-info h6 {
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 1px;
-    font-size: 1.2em;
+    font-size: .9em;
     color: #949494;
     border-bottom: 1px solid #dcdcdc;
     padding-bottom: 2em;
@@ -117,4 +117,7 @@ select {
 }
 .source-form h3 {
   margin-top: 2em;
+}
+#article-aside button {
+    margin-top: 1em;
 }

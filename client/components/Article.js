@@ -11,11 +11,11 @@ class Article extends React.Component{
     return(
         <div className="row">
           <div>
-            <iframe src={this.props.articleURL} width="100%" height="800px"></iframe>
+            <iframe src={this.props.articleData.url} width="100%" height="800px"></iframe>
           </div>
           <div className="article-info">
-            <h2>Article Title</h2>
-            <h6>Categories</h6>
+            <h2>{this.props.articleData.title}</h2>
+            <h6>{this.props.articleData.categories}</h6>
             <div className="icons">
               <i className="fa fa-heart"></i>
               <i className="material-icons">bookmark</i>

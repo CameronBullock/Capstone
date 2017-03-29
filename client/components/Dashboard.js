@@ -5,13 +5,14 @@ import AddSource from "../components/AddSource";
 import {connect} from "react-redux";
 
 class Dashboard extends React.Component {
-  state = { articles: [] , id: '', affiliateUrl: '', affiliationData: []}
+  state = { articles: [] , id: '', affiliateUrl: '', affiliationData: [], activeArticle: {} }
   componentDidMount(){
     $.ajax({
       url: "/api/articles",
       type: "GET"
     }).done( articles => {
-      this.setState({ articles });
+      this.setState({ articles },);
+      this.filterArticles();
     });
   };
 
@@ -38,7 +39,7 @@ class Dashboard extends React.Component {
     let data = this.state.affiliationData;
     let num = Math.floor(Math.random() * data.length);
     let article = data[num]
-    return article.url;
+    this.setState({activeArticle: article});
   }
 
   render(){
@@ -47,7 +48,7 @@ class Dashboard extends React.Component {
         <div>
           <div className="row">
             <div id="main-article" className="col m7 offset-m1">
-              <Article articleURL={this.displayArticle()} />
+              <Article articleData={this.state.activeArticle} />
             </div>
             <div id="article-aside" className="col m3">
               <h5>Did this video adjust your point of view on politics?</h5>
@@ -63,7 +64,7 @@ class Dashboard extends React.Component {
                 <input name="group1" type="radio" id="no"  />
                 <label htmlFor="no">No</label>
               </p>
-              <button className=" btn" onClick={this.filterArticles}>Next Article</button>
+              <button className=" btn" onClick={this.displayArticle}>Next Article</button>
               <br/>
               <br/>
               <AddSource />
@@ -81,7 +82,7 @@ class Dashboard extends React.Component {
               <h1>Get Started Exploring</h1>
               <p>Vestibulum euismod mus nibh potenti suscipit scelerisque ultricies parturient a.</p>
               <br/>
-              <button className="center-align btn" onClick={this.filterArticles}>Get Started</button>
+              <button className="center-align btn" onClick={this.displayArticle}>Get Started</button>
             </div>
           </div>
         </div>

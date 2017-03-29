@@ -25,6 +25,7 @@ router.get('/', (req,res) => {
 
 router.post("/", (req, res) => {
   new Article({
+    title: req.body.title,
     url: req.body.url,
     categories: req.body.categories,
     affiliation: req.body.affiliation
