@@ -18,6 +18,9 @@ nav ul a:hover, nav ul a:active {
 .logo_img {
     width: 293px;
 }
+.auth-page .logo_img {
+    margin: 2em 0 7em 0;
+}
 .home-btn {
     margin-top: 1em;
     padding: .9em 3em !important;

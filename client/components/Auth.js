@@ -32,7 +32,10 @@ class Auth extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container auth-page">
+        <div className="center">
+          <img className="responsive-img logo_img" src="../images/Wisebias_logo.png" alt="WiseBias Logo"/>
+        </div>
         <h2 className="center">{this.props.route.title}</h2>
         <div className="row">
           <form className="auth-form col col-md-6 offset-m4" onSubmit={this.handleSubmit}>
