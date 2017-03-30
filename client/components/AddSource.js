@@ -26,7 +26,7 @@ class AddSource extends React.Component {
     return (
       <div className="source-form">
         <h3>Add An Article</h3>
-        <form onSubmit={this.addSource}>
+        <form ref={ n => this.form = n } onSubmit={this.addSource}>
           <input ref={ n => this.title = n } placeholder="Article Title"/>
           <input ref={ n => this.url = n } placeholder="Url"/>
           <input type="text" ref={ n => this.categories = n } placeholder="categories"/>

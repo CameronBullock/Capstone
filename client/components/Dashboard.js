@@ -65,9 +65,21 @@ class Dashboard extends React.Component {
                 <label htmlFor="no">No</label>
               </p>
               <button className=" btn" onClick={this.displayArticle}>Next Article</button>
-              <br/>
-              <br/>
-              <AddSource />
+
+                {/* Modal Trigger */}
+                <a className="waves-effect waves-light btn" href="#modal1">Modal</a>
+
+                {/* Modal Structure */}
+                <div id="modal1" className="modal">
+                  <div className="modal-content">
+                    <AddSource />
+                    <h1>Test</h1>
+                  </div>
+                  <div className="modal-footer">
+                    <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">X</a>
+                  </div>
+                </div>
+                
             </div>
             <div className="col m1"></div>
           </div>

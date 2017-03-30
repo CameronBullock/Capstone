@@ -7,6 +7,7 @@ class Article extends React.Component{
     super(props);
     this.state = null;
   }
+
   render(){
     return(
         <div className="row">
