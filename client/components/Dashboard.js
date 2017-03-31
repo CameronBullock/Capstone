@@ -14,7 +14,12 @@ class Dashboard extends React.Component {
       this.setState({ articles },);
       this.filterArticles();
     });
+    $('#modal1').modal();
   };
+
+  componentDidUpdate(){
+    $('#modal1').modal();
+  }
 
   filterArticles = () => {
     const affiliation = this.props.user.affiliation
@@ -35,11 +40,17 @@ class Dashboard extends React.Component {
     }
   }
 
-  displayArticle = () => {
+  displayArticle = (e) => {
+    e.preventDefault();
     let data = this.state.affiliationData;
     let num = Math.floor(Math.random() * data.length);
     let article = data[num]
     this.setState({activeArticle: article});
+    // this.myForm.reset()
+  }
+
+  openModal = () => {
+    $('#modal1').modal('open')
   }
 
   render(){
@@ -52,6 +63,7 @@ class Dashboard extends React.Component {
             </div>
             <div id="article-aside" className="col m3">
               <h5>Did this video adjust your point of view on politics?</h5>
+              <form ref={n => this.myForm = n}>
               <p>
                 <input name="group1" type="radio" id="yes" />
                 <label htmlFor="yes">Yes</label>
@@ -65,21 +77,21 @@ class Dashboard extends React.Component {
                 <label htmlFor="no">No</label>
               </p>
               <button className=" btn" onClick={this.displayArticle}>Next Article</button>
+              </form>
 
                 {/* Modal Trigger */}
-                <a className="waves-effect waves-light btn" href="#modal1">Modal</a>
+                <button className="waves-effect waves-light btn" href="#modal1" onClick={this.openModal}>Modal</button>
 
                 {/* Modal Structure */}
                 <div id="modal1" className="modal">
                   <div className="modal-content">
                     <AddSource />
-                    <h1>Test</h1>
                   </div>
                   <div className="modal-footer">
                     <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">X</a>
                   </div>
                 </div>
-                
+
             </div>
             <div className="col m1"></div>
           </div>
@@ -102,6 +114,7 @@ class Dashboard extends React.Component {
     }
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     user: state.user

@@ -7,8 +7,8 @@ import Dashboard from "../components/Dashboard";
 
 class App extends React.Component {
   componentDidMount() {
-    // $(".button-collapse").sideNav({ closeOnClick: true });
-    // this.props.dispatch(refreshLogin());
+    $(".button-collapse").sideNav({ closeOnClick: true });
+    this.props.dispatch(refreshLogin());
   }
 
   links = () => {
@@ -65,15 +65,15 @@ class App extends React.Component {
         <nav className="white z-depth-0 container">
           <div>
             <a href="/" className="brand-logo">WiseBias</a>
-            {/* <a href="#" data-activates="mobile" className="button-collapse"><i className="material-icons">menu</i></a> */}
+            <a href="#" data-activates="mobile" className="button-collapse"><i className="material-icons">menu</i></a>
             <ul className="right">
               { this.links() }
               { this.authLinks() }
             </ul>
-            {/* <ul className="side-nav" id="mobile">
+            <ul className="side-nav" id="mobile">
               { this.links() }
               { this.authLinks() }
-            </ul> */}
+            </ul>
           </div>
         </nav>
         <Flash />
