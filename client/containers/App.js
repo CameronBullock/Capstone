@@ -4,6 +4,7 @@ import { logout, refreshLogin } from '../actions/auth';
 import { connect } from 'react-redux';
 import Flash from '../components/Flash';
 import Dashboard from "../components/Dashboard";
+import Footer from "../components/Footer"
 
 class App extends React.Component {
   componentDidMount() {
