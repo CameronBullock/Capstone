@@ -34,11 +34,11 @@ class Auth extends React.Component {
     return (
       <div className="container auth-page">
         <div className="center">
-          <img className="responsive-img logo_img" src="../images/Wisebias_logo.png" alt="WiseBias Logo"/>
+          <a href="/"><img className="responsive-img logo_img" src="../images/Wisebias_logo.png" alt="WiseBias Logo"/></a>
         </div>
         <h2 className="center">{this.props.route.title}</h2>
         <div className="row">
-          <form className="auth-form col col-md-6 offset-m4" onSubmit={this.handleSubmit}>
+          <form className="auth-form" onSubmit={this.handleSubmit}>
             <input type="email" required={true} ref={ n => this.email = n } placeholder="email" />
             <input type="password" required={true} ref={n => this.password = n } placeholder="password" />
             {this.props.location.pathname === "/signin" ? null :
@@ -55,7 +55,6 @@ class Auth extends React.Component {
               <div className="affiliation-list">
                 <div className="center section-title">
                   <h3 className="center">Where You Stand</h3>
-                  <h6>Vestibulum euismod mus nibh potenti suscipit</h6>
                 </div>
                 <select className="browser-default" onChange={this.handleChange}>
                   <option value="1">Liberal</option>
@@ -67,6 +66,10 @@ class Auth extends React.Component {
             </div>
           }
           <button className="btn col m12">{this.props.route.title}</button>
+          {this.props.location.pathname === "/signin" ? <a className="no-auth-login-btn center login-btn" href="/signup">Register</a> :
+          <a className="login-btn no-auth-login-btn center" href="/signin">Have An Account?</a>
+        }
+
         </form>
       </div>
     </div>

@@ -21,7 +21,9 @@ class Article extends React.Component{
               <i className="fa fa-heart"></i>
               <i className="fa fa-bookmark"></i>
               <i className="fa fa-share-alt"></i>
+              <a className="broken-link right" href="#">Report Broken Link</a>
             </div>
+            <div className="right"></div>
           </div>
         </div>
     )
