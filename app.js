@@ -15,6 +15,7 @@ mongoose.connect(mongoUri);
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const articles = require('./routes/articles');
+const account = require("./routes/account");
 const app = express();
 
 // view engine setup
@@ -44,6 +45,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use('/api/auth', auth);
 app.use('/api/articles', articles);
+app.use('/api/account', account);
 
 app.use('*', index);
 

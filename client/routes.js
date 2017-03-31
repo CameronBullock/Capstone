@@ -27,7 +27,9 @@ export default (
 
      <Route component={AuthenticatedRoutes}>
          {/* PROTECTED BY AUTHENTICATION */}
-         <Route path="dashboard" component={Dashboard} title="WiseBias" />
+         <Route path="dashboard" component={Dashboard} title="WiseBias" >
+         <Route component={Account} />
+         </Route>
 
 
        <Route component={AdminRoutes}>

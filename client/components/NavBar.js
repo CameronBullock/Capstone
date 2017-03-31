@@ -5,11 +5,12 @@ import { connect } from 'react-redux';
 import Flash from '../components/Flash';
 import Dashboard from "../components/Dashboard";
 
-class App extends React.Component {
-  componentDidMount() {
-    // $(".button-collapse").sideNav({ closeOnClick: true });
-    // this.props.dispatch(refreshLogin());
-  }
+
+class NavBar extends React.Component {
+  // componentDidMount() {
+  //    $(".button-collapse").sideNav({ closeOnClick: true });
+  //    this.props.dispatch(refreshLogin());
+  //  }
 
   links = () => {
     return [
@@ -49,9 +50,7 @@ class App extends React.Component {
       return links;
     } else {
       return [
-        { name: 'Sign In', path: '/signin' },
-        { name: 'Sign Up', path: '/signup' },
-        { name: 'Profile', path: '/account' },
+        { name: 'Profile', path: '/Account' },
       ].map( (link, i) => {
         let active = this.props.location.pathname === link.path ? 'active' : '';
         return this.link(i, link.name, link.path)
@@ -60,9 +59,10 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.props.router)
     return (
       <div>
-        <nav className="white z-depth-0 container">
+      <nav className="white z-depth-0 container">
           <div>
             <a href="/" className="brand-logo">WiseBias</a>
             {/* <a href="#" data-activates="mobile" className="button-collapse"><i className="material-icons">menu</i></a> */}
@@ -87,4 +87,5 @@ const mapStateToProps = (state) => {
   return { user: state.user }
 }
 
-export default connect(mapStateToProps)(App);
+
+export default connect(mapStateToProps)(NavBar);
