@@ -16,8 +16,9 @@ const Article = require('../models/article');
 //   return res.json(req.user)
 // });
 //
-router.put("account/:id", (req,res) => {
-  let{affiliation} = req.body;
+router.put("/:id", (req,res) => {
+  let { affiliation } = req.body;
+
   User.findByIdAndUpdate(
     req.params.id,
     {$set: {affiliation}},

@@ -35,6 +35,10 @@ class App extends React.Component {
           return this.link(i, link.name, link.path)
         });
         links.push(
+        <div>
+          <li key="account">
+            <a href="account">Account</a>
+          </li>
           <li key="logout">
             <a
               href="#"
@@ -45,13 +49,13 @@ class App extends React.Component {
               Logout
             </a>
           </li>
+        </div>
         )
       return links;
     } else {
       return [
         { name: 'Sign In', path: '/signin' },
-        { name: 'Sign Up', path: '/signup' },
-        { name: 'Profile', path: '/account' },
+        { name: 'Sign Up', path: '/signup' }
       ].map( (link, i) => {
         let active = this.props.location.pathname === link.path ? 'active' : '';
         return this.link(i, link.name, link.path)
