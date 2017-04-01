@@ -46,7 +46,7 @@ class Dashboard extends React.Component {
     let num = Math.floor(Math.random() * data.length);
     let article = data[num]
     this.setState({activeArticle: article});
-    // this.myForm.reset()
+    this.myForm.reset()
   }
 
   openModal = () => {
@@ -54,7 +54,9 @@ class Dashboard extends React.Component {
   }
 
   render(){
-    if (this.state.affiliationData.length) {
+    let { activeArticle } = this.state;
+
+    if (activeArticle && Object.keys(activeArticle).length) {
       return(
         <div>
           <div className="row">

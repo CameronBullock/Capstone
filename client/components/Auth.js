@@ -15,7 +15,6 @@ class Auth extends React.Component {
 
     let { email, password, affiliation, props: { location, dispatch, router }} = this;
     let extraData = location.pathname === "/signup" ? {affiliation: this.state.affiliation} : {}
-    console.log(this.state.affiliation);
 
     $.ajax({
       url: `/api/auth${location.pathname}`,

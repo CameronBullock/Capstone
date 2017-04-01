@@ -37,6 +37,9 @@ class App extends React.Component {
         });
         links.push(
         <div>
+          <li key="dashboard">
+            <a href="dashboard">Explore</a>
+          </li>
           <li key="account">
             <a href="account">Account</a>
           </li>

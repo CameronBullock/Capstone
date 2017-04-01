@@ -202,8 +202,9 @@ select {
 }
 
 a.broken-link {
-    padding-top: 50px;
+    padding-top: 15px;
     color: #2d79ff;
+    font-size: 14px;
 }
 
 .source-form {

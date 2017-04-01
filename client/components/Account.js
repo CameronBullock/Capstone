@@ -17,8 +17,7 @@ class Account extends React.Component {
       dataType: 'JSON',
       data: {affiliation}
     }).done(user => {
-      console.log(user.affiliation);
-      //Update Redux User using reducers and actions
+      this.props.dispatch({ type: 'USER', user })
     })
   }
 
