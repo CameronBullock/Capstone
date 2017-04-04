@@ -5,7 +5,26 @@ import ReactDom from "react-dom";
 class Article extends React.Component{
   constructor(props){
     super(props);
-    this.state = null;
+    this.state = {
+      completed: false,
+
+    };
+  }
+
+  componentDidMount(){
+    $('#share').modal();
+  };
+
+  componentDidUpdate(){
+    $('#share').modal();
+  }
+
+  openModal = () => {
+    $('#share').modal('open')
+  }
+
+  completed() {
+    // this.setState({ completed: !this.state.completed });
   }
 
   render(){
@@ -18,13 +37,21 @@ class Article extends React.Component{
             <h2>{this.props.articleData.title}</h2>
             <h6>{this.props.articleData.categories}</h6>
             <div className="icons">
-              <i className="fa fa-heart"></i>
-              <i className="fa fa-bookmark"></i>
-              <i className="fa fa-share-alt"></i>
+              <i className="fa fa-heart article-love"></i>
+              <i className="fa fa-bookmark article-save"></i>
+              <i className="fa fa-share-alt article-share" onClick={this.openModal} href="#share"></i>
               <a className="broken-link right" href="#">Report Broken Link</a>
             </div>
             <div className="right"></div>
           </div>
+
+          {/* Modal Structure */}
+          <div id="share" className="modal">
+            <div className="modal-content">
+              FACEBOOK
+            </div>
+          </div>
+
         </div>
     )
   }

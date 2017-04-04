@@ -5,11 +5,21 @@ import { connect } from 'react-redux';
 import Flash from '../components/Flash';
 import Dashboard from "../components/Dashboard";
 import Footer from "../components/Footer"
+import AddSource from "../components/AddSource"
 
 class App extends React.Component {
   componentDidMount() {
     $(".button-collapse").sideNav({ closeOnClick: true });
     this.props.dispatch(refreshLogin());
+    $('#modal1').modal();
+  }
+
+  componentDidUpdate(){
+    $('#modal1').modal();
+  }
+
+  openModal = () => {
+    $('#modal1').modal('open')
   }
 
   links = () => {
@@ -37,6 +47,9 @@ class App extends React.Component {
         });
         links.push(
         <div>
+          <li key="upload">
+            <a href="#"><i className="fa fa-plus" href="#modal1" onClick={this.openModal}></i></a>
+          </li>
           <li key="dashboard">
             <a href="dashboard">Explore</a>
           </li>
@@ -70,7 +83,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <nav className="white z-depth-0 container">
+        <div className="z-depth-1">
+          <nav className="white z-depth-0 container">
           <div>
             <a href="/" className="brand-logo">WiseBias</a>
             <a href="#" data-activates="mobile" className="button-collapse"><i className="material-icons">menu</i></a>
@@ -84,8 +98,18 @@ class App extends React.Component {
             </ul>
           </div>
         </nav>
+        </div>
         <Flash />
         {this.props.children}
+        {/* Modal Structure */}
+        <div id="modal1" className="modal">
+          <div className="modal-header">
+            <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat right">X</a>
+          </div>
+          <div className="modal-content">
+            <AddSource />
+          </div>
+        </div>
         <Footer />
       </div>
     );

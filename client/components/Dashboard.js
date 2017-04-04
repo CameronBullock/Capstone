@@ -5,7 +5,7 @@ import AddSource from "../components/AddSource";
 import {connect} from "react-redux";
 
 class Dashboard extends React.Component {
-  state = { articles: [] , id: '', affiliateUrl: '', affiliationData: [], activeArticle: {} }
+  state = { articles: [] , id: '', affiliationData: [], activeArticle: {} }
   componentDidMount(){
     $.ajax({
       url: "/api/articles",
@@ -81,18 +81,6 @@ class Dashboard extends React.Component {
               <button className=" btn" onClick={this.displayArticle}>Next Article</button>
               </form>
 
-                {/* Modal Trigger */}
-                <button className="waves-effect waves-light btn" href="#modal1" onClick={this.openModal}>Modal</button>
-
-                {/* Modal Structure */}
-                <div id="modal1" className="modal">
-                  <div className="modal-content">
-                    <AddSource />
-                  </div>
-                  <div className="modal-footer">
-                    <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">X</a>
-                  </div>
-                </div>
 
             </div>
             <div className="col m1"></div>
@@ -102,13 +90,14 @@ class Dashboard extends React.Component {
       )
     }else {
       return(
-        <div className="container">
-          <div className="valign-wrapper">
+        <div className="no-article-explore">
+          <div className="container">
+            <div className="valign-wrapper">
             <div className="valign">
-              <h1>Get Started Exploring</h1>
-              <p>Vestibulum euismod mus nibh potenti suscipit scelerisque ultricies parturient a.</p>
+              <h1>Get Started <br/>Exploring</h1>
               <br/>
               <button className="center-align btn" onClick={this.displayArticle}>Get Started</button>
+            </div>
             </div>
           </div>
         </div>
