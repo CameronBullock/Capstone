@@ -31,7 +31,7 @@ class Article extends React.Component{
     return(
         <div className="row">
           <div>
-            <iframe src={this.props.articleData.url} width="100%" height="800px"></iframe>
+            <iframe src={this.props.articleData.url} width="100%" height="600px"></iframe>
           </div>
           <div className="article-info">
             <h2>{this.props.articleData.title}</h2>
@@ -47,8 +47,14 @@ class Article extends React.Component{
 
           {/* Modal Structure */}
           <div id="share" className="modal">
-            <div className="modal-content">
-              FACEBOOK
+            <div className="share-modal modal-content">
+              <h3>Share this Article</h3>
+              <div className="share-logos">
+                  <img src="../images/logos/fb-logo.png" alt="Facebook Logo"/>
+                  <img src="../images/logos/twitter-logo.png" alt="Twitter Logo"/>
+                  <img src="../images/logos/Pinterest-logo.png" alt="Pinterest Logo"/>
+              </div>
+
             </div>
           </div>
 

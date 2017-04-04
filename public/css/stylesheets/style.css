@@ -143,7 +143,44 @@ select {
 .section-title h3 {
     margin-bottom: 30px !important;
 }
+/* Fullscreen Page */
+.fullscreen-close {
+    text-align: right;
+    color: #fff;
+    width: 90vw;
+    margin: 3em 0;
+    position: absolute;
+}
 
+.fullscreen-close i {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.fullscreen-page {
+    background-color: #2f2f2f;
+    margin-top: -111px;
+}
+
+#next-article-button {
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    right: 0;
+    background-color: #dcdcdc;
+    width: 100%;
+    padding: 1em 0;
+    padding-right: 53px;
+}
+.fullscreen-iframe {
+    width: 80%;
+    margin: auto;
+    padding: 100px 0 !important;
+}
+.fullscreen-iframe iframe {
+    background-color: #fff;
+}
 /* Dashboard Page */
 
 .no-article-explore {
@@ -184,6 +221,25 @@ select {
     margin-top: 1em;
 }
 
+#reader-mode-div {
+    padding-bottom: 1em;
+}
+
+.reader-view-button {
+    cursor: pointer;
+    font-size: 20px !important;
+    border: 1px solid #eaeaea;
+    padding: .5em 1em;
+    border-radius: 3px;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.1), 0 1px 7px 0 rgba(0,0,0,.1), 0 3px 1px -1px rgba(0,0,0,0.2);
+}
+.reader-view-button span {
+    font-family: 'roboto';
+    font-size: 20px;
+    font-weight: 200;
+    padding-left: 10px;
+}
+
 .article-info {
     font-family: 'Roboto', sans-serif;
     border: 1px solid #e6e6e6;
@@ -213,11 +269,11 @@ select {
 .icons {
     margin-top: .8em;
     color: #9e9e9e;
-    font-size: 2em;
+    font-size: 23px;
 }
 
 .icons i {
-    padding: 0 20px;
+    padding: 0 12px;
     cursor: pointer;
 }
 
@@ -233,6 +289,16 @@ a.broken-link {
     padding-top: 15px;
     color: #2d79ff;
     font-size: 14px;
+}
+
+.share-modal {
+    padding: 44px 0 !important;
+    text-align: center;
+}
+.share-logos img {
+    width: 81px;
+    padding: 10px 15px;
+    cursor: pointer;
 }
 
 .source-form {

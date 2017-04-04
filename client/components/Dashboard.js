@@ -3,9 +3,10 @@ import ReactDom from "react-dom";
 import Article from "../components/Article";
 import AddSource from "../components/AddSource";
 import {connect} from "react-redux";
+import Fullscreen from "../components/Fullscreen";
 
 class Dashboard extends React.Component {
-  state = { articles: [] , id: '', affiliationData: [], activeArticle: {} }
+  state = { articles: [] , id: '', affiliationData: [], activeArticle: {}, fullscreen: false }
   componentDidMount(){
     $.ajax({
       url: "/api/articles",
@@ -53,10 +54,16 @@ class Dashboard extends React.Component {
     $('#modal1').modal('open')
   }
 
+  fullscreenMode = (e) => {
+    e.preventDefault();
+    this.setState({ fullscreen: !this.state.fullscreen })
+  }
+
   render(){
     let { activeArticle } = this.state;
 
     if (activeArticle && Object.keys(activeArticle).length) {
+      if(this.state.fullscreen === false) {
       return(
         <div>
           <div className="row">
@@ -64,6 +71,9 @@ class Dashboard extends React.Component {
               <Article articleData={this.state.activeArticle} />
             </div>
             <div id="article-aside" className="col m3">
+              <div id="reader-mode-div">
+                <i className="reader-view-button fa fa-newspaper-o" onClick={this.fullscreenMode}><span>Reader View</span></i>
+              </div>
               <h5>Did this video adjust your point of view on politics?</h5>
               <form ref={n => this.myForm = n}>
               <p>
@@ -78,16 +88,29 @@ class Dashboard extends React.Component {
                 <input name="group1" type="radio" id="no"  />
                 <label htmlFor="no">No</label>
               </p>
-              <button className=" btn" onClick={this.displayArticle}>Next Article</button>
+              <button className="btn" onClick={this.displayArticle}>Next Article</button>
               </form>
-
-
             </div>
             <div className="col m1"></div>
+          </div>
+        </div>
+      )
+    } else if(this.state.fullscreen === true) {
+      return(
+        <div>
+          <div>
+            <div className="fullscreen-close">
+              <i className="fa fa-times" onClick={this.fullscreenMode}></i>
+            </div>
+            <Fullscreen articleData={this.state.activeArticle}/>
+            <div id="next-article-button">
+              <button className=" btn" onClick={this.displayArticle}>Next Article</button>
+            </div>
           </div>
 
         </div>
       )
+    }
     }else {
       return(
         <div className="no-article-explore">
