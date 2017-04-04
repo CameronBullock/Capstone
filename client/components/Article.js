@@ -52,7 +52,7 @@ class Article extends React.Component{
               <div className="share-logos">
                   <img src="../images/logos/fb-logo.png" alt="Facebook Logo"/>
                   <img src="../images/logos/twitter-logo.png" alt="Twitter Logo"/>
-                  <img src="../images/logos/Pinterest-logo.png" alt="Pinterest Logo"/>
+                  <img src="../images/logos/pinterest-logo.png" alt="Pinterest Logo"/>
               </div>
 
             </div>
