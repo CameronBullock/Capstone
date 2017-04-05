@@ -28,20 +28,31 @@ class Account extends React.Component {
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.changeAffiliation}>
-          <div className="affiliation-list">
-            <div className="center section-title">
-              <h3 className="center">Where You Stand</h3>
-            </div>
-            <select onChange={this.handleFormChange} name="affiliation" value={this.state.affiliation} className="browser-default">
-              <option value="1">Liberal</option>
-              <option value="2">Moderate - Liberal</option>
-              <option value="3">Moderate - Conservative</option>
-              <option value="4">Conservative</option>
-            </select>
+        <div className="row">
+          <div className="col m5">
+            <img className="responsive-img" src="../images/profileImage.jpg" alt=""/>
           </div>
-          <button className="btn">Save</button>
-        </form>
+          <div className="col m1"></div>
+          <div className="col m6 affiliation-list">
+            <form onSubmit={this.changeAffiliation}>
+              <div className="center section-title">
+                <h3 className="center">Profile Information</h3>
+              </div>
+              <h5>Username: <span>{this.props.user.username}</span></h5>
+              <br/>
+              <br/>
+              <h5>Where You Stand</h5>
+              <select onChange={this.handleFormChange} name="affiliation" value={this.state.affiliation} className="browser-default">
+                <option value="1">Liberal</option>
+                <option value="2">Moderate - Liberal</option>
+                <option value="3">Moderate - Conservative</option>
+                <option value="4">Conservative</option>
+              </select>
+              <br/>
+              <button className="btn">Save</button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
